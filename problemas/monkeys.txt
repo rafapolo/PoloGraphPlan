@@ -1,0 +1,32 @@
+Init(At(A) ^ Level(low) ^ BoxAt(C), BananasAt(B))
+Goal(Have(Bananas))
+
+Action(
+	Move(X, Y)
+    	PRECOND: At(X) ^ Level(low)
+    	EFFECT: ¬At(X) ^ At(Y)
+	)               
+
+Action(
+	ClimbUp(Location)
+		PRECOND: At(Location) ^ BoxAt(Location) ^ Level(low)
+		EFFECT: Level(high) ^ ¬Level(low)
+	)               
+
+Action(
+	ClimbDown(Location)
+		PRECOND: At(Location) ^ BoxAt(Location) ^ Level(high)
+		EFFECT: Level(low) ^ ¬Level(high)
+	)
+
+Action(
+	MoveBox(X, Y)
+		PRECOND: At(X) ^ BoxAt(X) ^ Level(low)
+		EFFECT: BoxAt(Y) ^ ¬BoxAt(X) ^ At(Y) ¬ At(X)
+	)               
+
+Action(
+	TakeBananas(Location)
+		PRECOND: At(Location) ^ BananasAt(Location) ^ Level(high)
+		EFFECT: Have(bananas)
+	)

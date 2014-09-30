@@ -1,8 +1,14 @@
+/*
+ * Action.java
+ *
+ * Autor: Rafael Polo
+ * Date: Julho 2011
+ */
+
 package com.extrapolo.graphplan.model;
 
 import com.extrapolo.graphplan.view.Screen;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Action extends Mutexable {
 
@@ -10,7 +16,6 @@ public class Action extends Mutexable {
     private ArrayList<State> precondition = new ArrayList<State>();
     private ArrayList<State> effects = new ArrayList<State>();
     private ArrayList<State> fromStates = new ArrayList<State>();
-    private HashMap params = new HashMap<String, String>();
     private boolean isNoOp = false;
 
     public Action(String id) {
@@ -135,13 +140,5 @@ public class Action extends Mutexable {
         State effectState = new State(previewState.getId());
         effectState.setLevel(previewState.getLevel() + 1);
         getEffects().add(previewState);
-    }
-
-    public HashMap getParams() {
-        return params;
-    }
-
-    public void setParams(HashMap params) {
-        this.params = params;
     }
 }

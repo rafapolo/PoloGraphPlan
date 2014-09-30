@@ -1,0 +1,28 @@
+// Exemplo com literais CWA
+
+Init(At(Flat,Axle) ^ At(Spare,Trunk)) 
+Goal(At(Spare,Axle)) 
+
+Action(
+	Remove(s: Spare, t: Trunk)
+		PRECOND: At(s,t)
+		EFFECT: ¬At(s,t) ^ At(s,Ground)
+	) 
+	
+Action(
+	Remove(f: Flat, a: Axle)
+		PRECOND: At(f,a)
+		EFFECT: ¬At(f,a) ^ At(f,Ground)
+	) 
+	
+Action(
+	PutOn(s: Spare, a: Axle)
+		PRECOND: At(s,Ground) ^ ¬At(f,a)
+		EFFECT: At(s,a) ^ ¬At(s,Ground)
+	) 
+	
+Action(
+	LeaveOvernight
+		PRECOND:
+		EFFECT: ¬At(s,Ground) ^ ¬ At(s,a) ^ ¬ At(s,t) ^ ¬ At(f,f) ^ ¬At(f,a)
+	)

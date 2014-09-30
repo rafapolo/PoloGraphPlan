@@ -1,3 +1,10 @@
+/*
+ * Mutexable.java
+ *
+ * Autor: Rafael Polo
+ * Date: Julho 2011
+ */
+
 package com.extrapolo.graphplan.model;
 
 import java.util.ArrayList;

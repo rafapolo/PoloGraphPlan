@@ -1,0 +1,20 @@
+Init(At(C1, SFO) ^ At(C2,JFK) ^ At(P1,SFO) ^ At(P2,JFK))
+Goal(At(C1,JFK) ^ At(C2,SFO)) 
+
+Action(
+	Load(c: Cargo, p: Plane, a: Airport)
+		PRECOND: At(c,a) ^ At(p,a)
+		EFFECT: ¬At(c,a) ^ In(c,p)
+	) 
+	
+Action(
+	Unload(c: Cargo, p: Plane, a: Airport)
+		PRECOND: In(c,p) ^ At(p,a)
+		EFFECT: At(c,a) ^ ¬In(c,p)
+	) 
+	
+Action(
+	Fly(p: Plane, from: Airport, to: Airport)
+		PRECOND: At(p,from)
+		EFFECT: ¬ At(p,from) ^ At(p,to)
+	)

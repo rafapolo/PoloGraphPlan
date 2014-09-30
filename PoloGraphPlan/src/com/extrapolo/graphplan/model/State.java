@@ -1,3 +1,10 @@
+/*
+ * State.java
+ *
+ * Autor: Rafael Polo
+ * Date: Julho 2011
+ */
+
 package com.extrapolo.graphplan.model;
 
 import com.extrapolo.graphplan.view.Screen;
@@ -7,7 +14,7 @@ public class State extends Mutexable {
 
     private static ArrayList<State> allStates = new ArrayList<State>();
     private ArrayList<Action> fromActions = new ArrayList<Action>();
-
+    
     public State(String id) {
         setId(id);
         boolean contains = false;
@@ -18,7 +25,7 @@ public class State extends Mutexable {
             }
         }
         if (!contains) {
-       //     allStates.add(this);
+            allStates.add(this);
         }
     }
 
@@ -60,13 +67,17 @@ public class State extends Mutexable {
         return false;
     }
 
+    public State oposto() {
+        String opId = getId().startsWith("!") ? getId().replace("!", "") : "!" + getId();
+        return new State(opId);
+    }
+    
+    public boolean isNegativo() {
+        return this.getId().startsWith("!");
+    }
     public static void reset() {
         allStates.clear();
     }   
-    
-    public boolean isNegative(){
-        return getId().startsWith("¬");
-    }
     
     public static State addOrCreate(String id) {
         int index = getAllStates().indexOf(id);
@@ -80,12 +91,7 @@ public class State extends Mutexable {
     public void addFromAction(Action action) {
         fromActions.add(action);
     }
-
-    public State oposto() {
-        String opId = getId().startsWith("¬") ? getId().replace("¬", "") : "¬" + getId();
-        return new State(opId);
-    }
-
+    
     public ArrayList<Action> getFromActions() {
         return fromActions;
     }

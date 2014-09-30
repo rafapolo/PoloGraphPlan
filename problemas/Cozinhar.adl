@@ -1,0 +1,26 @@
+Init(has(cozinhaSuja) ^ has(maoLimpa) ^ has(silencio))
+Goal(¬has(cozinhaSuja) ^ has(presente) ^ has(janta)) 
+
+Action(
+	Cozinhar
+		PRECOND: has(maoLimpa)
+		EFFECT: has(Janta)
+	) 
+	
+Action(
+	Embrulhar
+		PRECOND: has(silencio)
+		EFFECT: has(presente)
+	) 
+	
+Action(
+	Carry
+		PRECOND: 
+		EFFECT: ¬has(cozinhaSuja) ^ ¬has(maoLimpa)
+	)
+	
+Action(
+	Dolly
+		PRECOND:
+		EFFECT: ¬has(cozinhaSuja) ^ ¬has(silencio)
+)

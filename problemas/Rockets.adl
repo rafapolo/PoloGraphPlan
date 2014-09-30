@@ -1,0 +1,20 @@
+Init(At(A,L) ^ At(B,L) ^ At(R,L) ^ hasFuel(R))
+Goal(At(A,P) ^ At(B,P))
+
+Action(
+	Move(r: Rocket, from: Place, to: Place)
+		PRECOND: from != to ^ At(r,from) ^ hasFuel(r)
+		EFFECT: At(r, to) ^ ¬At(r, from) ^ ¬hasFuel(r)
+)
+
+Action(
+	Unload(r: Rocket, p: Place, c: Cargo)
+		PRECOND: At(r,p) ^ In(c,r)
+		EFFECT: ¬In(c,r) ^At(c,p)
+)
+	
+Action(
+	Load(r: Rocket, p: Place, c: Cargo)
+		PRECOND: At(r,p) ^ At(c,p)
+		EFFECT: ¬At(c,p) ^ In(c,r)
+)
