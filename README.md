@@ -6,7 +6,7 @@ A Java Swing application implementing the **Graphplan** automated planning algor
 
 Academic project for the course *Planning Systems: Knowledge Representation and Reasoning* @ UNIRIO (2011–2014).
 
-![PoloGraphPlan screenshot](docs/graphplan.jpg)
+![PoloGraphPlan screenshot](material/graphplan.jpg)
 
 ---
 
