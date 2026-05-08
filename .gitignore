@@ -11,10 +11,8 @@ dist/
 # Archives
 *.zip
 
-# NetBeans private files
-nbproject/private/
-nbproject/Makefile-*.mk
-nbproject/Package-*.bash
+# NetBeans project files
+nbproject/
 
 # OS files
 .DS_Store
