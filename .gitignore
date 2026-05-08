@@ -11,8 +11,11 @@ dist/
 # Archives
 *.zip
 
-# NetBeans project files
+# NetBeans generated files
 nbproject/
+*.form
+*.mf
+build.xml
 
 # OS files
 .DS_Store
