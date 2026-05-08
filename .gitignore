@@ -1,0 +1,21 @@
+# Build output
+build/
+dist/
+
+# Compiled classes
+*.class
+
+# JAR files
+*.jar
+
+# Archives
+*.zip
+
+# NetBeans private files
+nbproject/private/
+nbproject/Makefile-*.mk
+nbproject/Package-*.bash
+
+# OS files
+.DS_Store
+Thumbs.db
